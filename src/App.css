@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+#logo {
+  background-image: url(./logo.png);
+}
+.App-logo {
+  margin-top: 10px;
+  height: 17vmin;}
+
+
+.App-header {
+
+  min-height: 100vh;
+ 
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
