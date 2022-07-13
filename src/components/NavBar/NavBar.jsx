@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Nav, NavDropdown, NavItem } from 'react-bootstrap'
+import { Nav, NavDropdown, NavItem, NavLink } from 'react-bootstrap'
+import CartWidget from '../CartWidget/CartWidget';
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
 const NavBar = () => {
     
     return (
-        <div>
+        <>
             <Nav className="justify-content-center"  activeKey="/home">
                 <NavDropdown title="Balanceado" id="nav-dropdown" >
                     <NavDropdown.Item>Gatos</NavDropdown.Item>
@@ -20,8 +22,14 @@ const NavBar = () => {
                 <Nav.Item>
                 <Nav.Link >Juguetes</Nav.Link>
                 </Nav.Item>
+                <NavItem>
+                    <NavLink>
+                        <CartWidget/>
+                    </NavLink>
+                </NavItem>
+                
                 </Nav>
-        </div>
+        </>
     )
 }
 
