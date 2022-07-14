@@ -10,9 +10,9 @@ function App() {
       <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <NavBar/>
-      
-      </header>
       <ItemListContainer greeting="¡Bienvenido a Little Paws!" />
+      </header>
+      
     </div>
   );
 }
