@@ -28,15 +28,32 @@ const ItemCount = ({inicial = 1, stock = 10, onAdd} ) => {
 
     return (
         <>
+                <style type="text/css">
+                {`
+            .btn-count {
+                background-color: #FF9F50;
+                color: white;
+                font-weight: bold;
+                border-color: #EF5C18;
+            }
+
+            .btn-carrito {
+                background-color: #EF5C18;
+                color: white;
+            }
+            `}
+
+            </style>
+
             <Card className="text-center mx-auto" style={{ width: '10rem' }}>
                 <Card.Header>
                     <label>{count}</label>
                 </Card.Header>
                 <ButtonGroup >
-                    <button className="btn btn-outline-secondary btn-lg" onClick={handleRemove}> - </button>
-                    <button className="btn btn-outline-primary btn-lg" onClick={handleAdd}> + </button>
+                    <button className="btn btn-count btn-lg" onClick={handleRemove}> - </button>
+                    <button className="btn btn-count btn-lg" onClick={handleAdd}> + </button>
                 </ButtonGroup>
-                <button className="btn btn-outline-success btn-sm" onClick={handleAddToCart}>Agregar al carrito</button>
+                <button className="btn btn-carrito btn-sm" onClick={handleAddToCart}>Agregar al carrito</button>
             </Card>
         </>
     )
