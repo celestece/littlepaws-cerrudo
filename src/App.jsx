@@ -3,17 +3,20 @@ import './App.css';
 import logo from './logo.png';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import {BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <NavBar/>
-      <ItemListContainer greeting="¡Bienvenido a Little Paws!" />
-      </header>
+      <Routes>
       
+        <Route index path="/" element={<ItemListContainer greeting="¡Bienvenido a Little Paws!" />}/>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

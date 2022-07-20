@@ -41,6 +41,12 @@ const ItemCount = ({inicial = 1, stock = 10, onAdd} ) => {
                 background-color: #EF5C18;
                 color: white;
             }
+            .btn-count:hover {
+                color: red;
+            }
+            .btn-carrito:hover {
+                color: #FDCC9B;
+            }
             `}
 
             </style>
