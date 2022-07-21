@@ -7,22 +7,7 @@ const NavBar = () => {
     
     const [sobresShow, setSobresShown] = useState(false);
     const [balanShow, setBalanShown] = useState(false);
-  
-    // let contenido = "hola"
-    // const items = { 1:'a', 2: 'b', 3: 'c', 4:'d' };
-    // let idNav
-    // let muestraContenido
-    
 
-    // const mostrarProductos = event => {
-    //     idNav = event.currentTarget.id
-    //     muestraContenido = items[idNav]
-    //     console.log(muestraContenido)
-    //     setIsShown(true)
-
-    //     return idNav
-        
-    // }
 
     
     
@@ -30,7 +15,21 @@ const NavBar = () => {
 
     return (
         <>
-            
+            {/* <style type="text/css">
+                {`
+            .cartas {
+                position: absolute
+                
+            }
+            .cartas-parent {
+                display: inline-block
+                text-align: center
+                width: 50%
+                margin-left: 50%
+            }
+            `}
+             </style> */}
+
             <Nav className="justify-content-center"  activeKey="/home">
 
             <Nav.Item>
@@ -57,7 +56,8 @@ const NavBar = () => {
                 
                 </Nav>
                 {balanShow && (
-                <Card className="text-center mx-auto" style={{ width: '10rem' }}>
+                <div className='cartas-parent'>
+                <Card className="justify-content-center text-center mx-auto cartas" style={{ width: '10rem' }}>
                     <Nav>
                         <NavItem>
                             <NavLink>Gatos</NavLink>
@@ -67,9 +67,11 @@ const NavBar = () => {
                         </NavItem>
                     </Nav>
                 </Card>
+                </div>
             )}
             {sobresShow && (
-                <Card className="text-center mx-auto" style={{ width: '10rem' }}>
+                <div className='cartas-parent'>
+                <Card className="justify-content-center text-center mx-auto cartas" style={{ width: '10rem' }}>
                     <Nav>
                         <NavItem>
                             <NavLink>Suffles</NavLink>
@@ -79,6 +81,7 @@ const NavBar = () => {
                         </NavItem>
                     </Nav>
                 </Card>
+                </div>
             )}
         </>
     )

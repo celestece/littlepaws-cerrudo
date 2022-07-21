@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { promProductos } from "../data/data";
 import ItemCount from "../ItemCount/ItemCount"
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import ItemList from "../ItemList/ItemList";
 
 
@@ -26,8 +27,8 @@ const ItemListContainer = ({greeting}) => {
             { greeting }
             <br/><br/>
 
-            <ItemList productos={productos} />
-
+            <ItemList productos={productos}/>
+            
             <br/><br/>
             <ItemCount inicial={1} stock={2} onAdd={onAdd} />
         </>
