@@ -1,22 +1,31 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom"
 import { useEffect } from "react";
 import { getItem } from "../data/data";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import kittyLoad from '../assets/kittyLoad.gif';
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
+    const [loading, setLoading] = useState(true)
+
+    const {detalleId} = useParams() 
 
     useEffect(()=> {
-        getItem(1)
+        getItem(detalleId)
         .then(respuesta => setItem(respuesta))
         .catch(err => console.log(err))
-        .finally(()=> console.log('finally'))
+        .finally(()=> setLoading(false))
     }, [])
     {console.log(item)}
     return (
         <>
             <br/>
-            <ItemDetail  item={item}/>
+            {loading ? <img src={kittyLoad} style={{ maxWidth: '200px' }}></img>
+            
+            : <ItemDetail  item={item}/>
+            }
+            
         </>
     )
 
