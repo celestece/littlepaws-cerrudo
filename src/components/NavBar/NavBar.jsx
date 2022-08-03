@@ -46,6 +46,7 @@ const NavBar = () => {
                 <Nav.Item>
                 <Nav.Link><Link  to="/categoria/juguetes">Juguetes</Link></Nav.Link>
                 </Nav.Item>
+                
                 <NavItem>
                     <NavLink>
                         <Link to="/cart"><CartWidget/></Link>

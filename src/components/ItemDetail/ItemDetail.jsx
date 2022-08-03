@@ -4,18 +4,27 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import {  useCartContext } from '../../context/CartContext';
+
 
 
 const ItemDetail = ({item}) => {
     const [agregado, setAgregado] = useState(false)
     const [cantItem, setCantItem] = useState(0)
 
+    const {agregarCarrito, cartList} = useCartContext()
+
     const onAdd = (amount) => {
         console.log(`Amount of elements added: ${amount}`) 
         setCantItem(amount)
         setAgregado(true)
+       
+        agregarCarrito({...item, cantidad: amount})
+        
+        
     }
+    console.log(cartList)
     return (
         <>
         <Container>
