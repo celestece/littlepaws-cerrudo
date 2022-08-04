@@ -18,8 +18,9 @@ export const CartContextProvider = ({children}) => {
     const isInCart = (id) => cartList.some(prod => prod.id === id)
 
     const agregarCarrito = (prod) => {
-
+        console.log(prod.id)
         if (isInCart(prod.id)){
+           
             for (const item in cartList){
                 if (cartList[item].id === prod.id) {
                     cartList[item].cantidad += prod.cantidad
@@ -29,6 +30,25 @@ export const CartContextProvider = ({children}) => {
         else {
             setCartList([...cartList, prod])
         }
+        
+
+
+
+        // if (isInCart(prod.id)){
+        //     const nuevoCart = cartList.map(item => {if (item.id == prod.id){
+        //         item.cantidad += prod.cantidad
+        //     }})
+        //     setCartList(nuevoCart)
+
+        //     // for (const item in cartList){
+        //     //     if (cartList[item].id === prod.id) {
+        //     //         cartList[item].cantidad += prod.cantidad
+        //     //     }
+        //     // }
+        // }
+        // else {
+        //     setCartList([...cartList, prod])
+        // }
        
 
         // if (isInCart(prod.id)){

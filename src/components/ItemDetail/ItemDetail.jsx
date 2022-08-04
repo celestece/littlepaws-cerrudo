@@ -4,8 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {  useCartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,8 +23,8 @@ const ItemDetail = ({item}) => {
        
         agregarCarrito({...item, cantidad: amount})
         
-        
     }
+
     console.log(cartList)
     return (
         <>
@@ -40,8 +41,14 @@ const ItemDetail = ({item}) => {
                         <br/><div>{item.description}</div>
 
                         <div style={{ marginTop: '5px' }}>{`Precio: ${item.price}`}</div>
+                        <br/>
 
-                        <br/><ItemCount inicial={1} agregado={agregado} stock={item.stock} onAdd={onAdd} />
+                        {agregado ? <button className="btn btn-sm" style={{ borderRadius:"12px", backgroundColor: "#FF9F50", color: "white", margin:"5px", outlineColor:"white" }}><Link to="/cart">Terminar Compra</Link></button>
+                
+                        : <ItemCount inicial={1} stock={item.stock} onAdd={onAdd} />
+                        
+                        }
+                        
                     </Col>
                 </Row>
             </Card>

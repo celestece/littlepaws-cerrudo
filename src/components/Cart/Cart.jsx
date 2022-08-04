@@ -19,7 +19,7 @@ const Cart = () => {
                     </li>
 
                 ))}
-
+                
             </ul>
             <button className="btn-outline-light" onClick={vaciarCarrito} style={{ borderRadius:"12px", backgroundColor: "#FF9F50", color: "white", margin:"5px", outlineColor:"white" }}>Vaciar Carrito</button>
         </>

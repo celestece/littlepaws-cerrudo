@@ -20,4 +20,11 @@
   color: #61dafb;
 }
 
+a {
+  color: white;
+}
+
+a:hover {
+  color: #FDCC9B;;
+}
 

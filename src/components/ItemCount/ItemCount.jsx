@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Card, ButtonGroup } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
-const ItemCount = ({inicial = 1, agregado, stock = 10, onAdd} ) => {
+const ItemCount = ({inicial = 1, stock = 10, onAdd} ) => {
     
     const [count, setCount] = useState(1)
 
@@ -61,11 +61,10 @@ const ItemCount = ({inicial = 1, agregado, stock = 10, onAdd} ) => {
                     <button className="btn btn-count btn-lg" onClick={handleAdd}> + </button>
                 </ButtonGroup>
                 
-                {agregado ? <button className="btn btn-carrito btn-sm" ><Link to="/cart">Terminar Compra</Link></button>
                 
-                : <button className="btn btn-carrito btn-sm" onClick={handleAddToCart}>Agregar al carrito</button>
+                 <button className="btn btn-carrito btn-sm" onClick={handleAddToCart}>Agregar al carrito</button>
                 
-                }
+                
                 
             </Card>
         </>
