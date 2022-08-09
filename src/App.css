@@ -1,3 +1,12 @@
+/* @import "fonts.css"; */
+
+
+@font-face {
+  font-family: 'angryBirds';
+  src: local('angryBirds'),
+       url('./fonts/angryBirds.ttf') format('ttf');     
+}
+
 .App {
   text-align: center;
 }
@@ -20,11 +29,21 @@
   color: #61dafb;
 }
 
+.capuche {
+  font-family: "angryBirds";
+}
+
 a {
-  color: white;
+  text-decoration: none;
+  font-family: "angryBirds";
+  color: #EF5C18;
 }
 
 a:hover {
-  color: #FDCC9B;;
+  text-decoration: none;
+  font-family: "angryBirds";
+  color: #FDCC9B;
 }
+
+
 

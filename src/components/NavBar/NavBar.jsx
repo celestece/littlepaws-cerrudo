@@ -28,11 +28,11 @@ const NavBar = () => {
             `}
              </style> */}
             <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
-            <Nav className="justify-content-center"  activeKey="/home">
+            <Nav className="justify-content-center capuche"  activeKey="/home">
 
             <Nav.Item>
                 <Nav.Link onMouseEnter={() => setBalanShown(true)}
-                onMouseLeave={() => setBalanShown(false)}><Link to="/categoria/balanceado">Balanceado</Link></Nav.Link>
+                onMouseLeave={() => setBalanShown(false)}><Link to="/categoria/balanceado">BALANCEADO</Link></Nav.Link>
                 </Nav.Item> 
 
                 <Nav.Item>

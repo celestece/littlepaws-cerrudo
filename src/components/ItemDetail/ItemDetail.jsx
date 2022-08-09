@@ -1,4 +1,4 @@
-import { Card } from 'react-bootstrap'
+import { ButtonGroup, Card } from 'react-bootstrap'
 import CardHeader from 'react-bootstrap/esm/CardHeader'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -43,8 +43,12 @@ const ItemDetail = ({item}) => {
                         <div style={{ marginTop: '5px' }}>{`Precio: ${item.price}`}</div>
                         <br/>
 
-                        {agregado ? <button className="btn btn-sm" style={{ borderRadius:"12px", backgroundColor: "#FF9F50", color: "white", margin:"5px", outlineColor:"white" }}><Link to="/cart">Terminar Compra</Link></button>
-                
+                        {agregado ? 
+                        <ButtonGroup>
+                            <button className="btn btn-sm" style={{ borderRadius:"12px", backgroundColor: "#FF9F50", margin:"5px", outlineColor:"white" }}><Link style={{  color: "white" }} to="/">Seguir Comprando</Link></button>
+                            <button className="btn btn-sm" style={{ borderRadius:"12px", backgroundColor: "#FF9F50", margin:"5px", outlineColor:"white" }}><Link style={{  color: "white" }} to="/cart">Terminar Compra</Link></button>
+                        </ButtonGroup>
+
                         : <ItemCount inicial={1} stock={item.stock} onAdd={onAdd} />
                         
                         }
