@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import CardHeader from 'react-bootstrap/esm/CardHeader'
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
+import React from 'react';
 
 
 

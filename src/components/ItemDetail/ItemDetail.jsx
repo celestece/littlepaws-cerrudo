@@ -1,4 +1,5 @@
 import { ButtonGroup, Card } from 'react-bootstrap'
+import React from 'react';
 import CardHeader from 'react-bootstrap/esm/CardHeader'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -11,21 +12,19 @@ import { Link } from 'react-router-dom';
 
 
 const ItemDetail = ({item}) => {
-    const [agregado, setAgregado] = useState(false)
-    const [cantItem, setCantItem] = useState(0)
+    const [added, setAdded] = useState(false)
 
-    const {agregarCarrito, cartList} = useCartContext()
+    const {agregarCarrito} = useCartContext()
 
     const onAdd = (amount) => {
         console.log(`Amount of elements added: ${amount}`) 
-        setCantItem(amount)
-        setAgregado(true)
+        setAdded(true)
        
         agregarCarrito({...item, cantidad: amount})
         
     }
 
-    console.log(cartList)
+    
     return (
         <>
         <Container>
@@ -43,7 +42,7 @@ const ItemDetail = ({item}) => {
                         <div style={{ marginTop: '5px' }}>{`Precio: ${item.price}`}</div>
                         <br/>
 
-                        {agregado ? 
+                        {added ? 
                         <ButtonGroup>
                             <button className="btn btn-sm" style={{ borderRadius:"12px", backgroundColor: "#FF9F50", margin:"5px", outlineColor:"white" }}><Link style={{  color: "white" }} to="/">Seguir Comprando</Link></button>
                             <button className="btn btn-sm" style={{ borderRadius:"12px", backgroundColor: "#FF9F50", margin:"5px", outlineColor:"white" }}><Link style={{  color: "white" }} to="/cart">Terminar Compra</Link></button>

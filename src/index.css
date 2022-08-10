@@ -1,13 +1,27 @@
+@font-face {
+  font-family: 'angryBirds';
+  src: local('angryBirds'),
+       url('./fonts/angryBirds.ttf') format('ttf');     
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: "Lobster";
+  /* font-family: 'Capuche' !important; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace; */
+    /* font-family: "angryBirds" !important;
+    font-family:monospace;
+} */
+
+.capuche {
+  font-family: "angryBirds";
 }

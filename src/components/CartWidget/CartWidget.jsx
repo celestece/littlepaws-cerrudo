@@ -1,11 +1,12 @@
 import cartIcon from '../assets/cartIcon.png';
+import React from 'react';
 import { useCartContext } from "../../context/CartContext"
 
 
 const CartWidget = () => {
 
     const {cantidadTotal} = useCartContext()
-
+    console.log(cantidadTotal)
     
     return (
         <>
