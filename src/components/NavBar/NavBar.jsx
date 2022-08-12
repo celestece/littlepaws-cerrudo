@@ -37,7 +37,7 @@ const NavBar = () => {
 
                 <Nav.Item>
                 <Nav.Link onMouseEnter={() => setSobresShown(true)}
-                onMouseLeave={() => setSobresShown(false)}><Link  to="/categoria/sobrecitos">Sobrecitos</Link></Nav.Link>
+                onMouseLeave={() => setSobresShown(false)}><Link  to="/categoria/pate">PATÉ</Link></Nav.Link>
                 </Nav.Item>
                 
                 <Nav.Item>
