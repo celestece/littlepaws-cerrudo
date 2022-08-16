@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 import React, { useState } from 'react';
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
+import CheckoutForm from "../Form/Form";
 
 
 
@@ -57,7 +58,7 @@ const Cart = () => {
 
     return (
         <>
-            {orderId !== '' && <div>{`Su numero de orden es ${orderId}`}</div> }
+            {orderId !== '' && <div>{`Su numero de orden es ${orderId}`}</div> } {/* check if orderId was generated and if so, show */}
             {cartList.length == 0 ? 
 
             
@@ -87,28 +88,14 @@ const Cart = () => {
 
                                     <div style={{ marginTop: '5px' }}>{`Precio: ${item.price}`}</div>
                                     <br/>
-                                    <button onClick={() => eliminarItem(item.id)}>Eliminar Producto</button>
-
-                                    
+                                    <button onClick={() => eliminarItem(item.id)}>Eliminar Producto</button>                                   
                                 </Col>
-                                
-
-                                </Row>
-                                
-                            </Card>
-                            
-                            
-                            
-                            
-                            
-                                    
-                                
-                            
+                                </Row>                              
+                            </Card>  
                         </div>
-
-                    ))}
-                    
+                    ))}  
                 </ul>
+                
                 <Card className="text-center mx-auto" style={{ width: '10rem' }}>
                     <CardHeader>TOTAL</CardHeader>
                     <h3>${precioTotal()}</h3>
@@ -116,6 +103,9 @@ const Cart = () => {
                 </Card>
                 <button className="btn-outline-light" onClick={vaciarCarrito} style={{ borderRadius:"12px", backgroundColor: "#FF9F50", color: "white", margin:"5px", outlineColor:"white" }}>Vaciar Carrito</button>
                 
+                <CheckoutForm saveOrder={saveOrder}/>
+                <br/>
+                <br/>
                 
             </div>
             }
