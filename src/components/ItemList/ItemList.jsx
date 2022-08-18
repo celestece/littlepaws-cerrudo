@@ -10,7 +10,7 @@ const ItemList = ({productos}) => {
     return (
         <>
         <Container>
-            <Row>
+            <Row md={4}>
                 {productos?.map(producto => <Item key={producto.id} prods={producto} />)}
             </Row>
         </Container>

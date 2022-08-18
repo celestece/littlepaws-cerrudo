@@ -2,10 +2,9 @@ import { useState } from "react";
 import React from 'react';
 import { useParams } from "react-router-dom"
 import { useEffect } from "react";
-import { getItem } from "../data/data";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import kittyLoad from '../assets/kittyLoad.gif';
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+import Loading from "../Loading/Loading";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
@@ -25,7 +24,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <br/>
-            {loading ? <img src={kittyLoad} style={{ maxWidth: '200px' }}></img>
+            {loading ? <Loading/>
             
             : <ItemDetail  item={item}/>
             }

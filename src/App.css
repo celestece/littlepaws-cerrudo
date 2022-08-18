@@ -45,5 +45,29 @@ a:hover {
   color: #FDCC9B;
 }
 
+.balanceado {
+  width: 150px;
+  height: 170px
+}
+
+.itemCard:hover{
+  background-color: #61dafb;
+}
+
+.pate {
+  width: 140px;
+  height: 170px
+}
+
+.juguete {
+  width: 150px;
+  height: 150px
+}
+
+.complemento {
+  width: 150px;
+  height: 150px
+}
+
 
 

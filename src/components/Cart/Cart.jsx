@@ -5,63 +5,84 @@ import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 import React, { useState } from 'react';
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
-import CheckoutForm from "../Form/Form";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import CartList from "../CartList/CartList";
+import { SetOrder, setOrder, UpdateStock, updateStock } from "../helpers/Helpers";
 
 
 
 const Cart = () => {
    
-    const {cartList, vaciarCarrito, eliminarItem, precioTotal} = useCartContext()
-    const [orderId, setOrderId] = useState('')
+    const {cartList, vaciarCarrito, precioTotal} = useCartContext() //Import context array and functions
+    const [orderId, setOrderId] = useState('') //Order State
 
-    const saveOrder = async (e) => {
+
+    const saveOrder = async (e, buyerData) => { //Save order function that creates the order information to store in Firestore
         e.preventDefault()
 
-        const order = {}
-        order.buyer = {email:'celestecerrudo@gmail.com', name:'celeste', phone:'6646356'}
-        order.items = cartList.map(prod => {
+        const order = {} //empty order object
+        order.buyer =  buyerData //buyer state set by the form
+
+        console.log(order.buyer)
+
+        order.items = cartList.map(prod => { //List cartList(array) products and save the properties of interest (product, id, price)
             return {
                 product: prod.title,
                 id: prod.id,
                 price: prod.price
             }
         })
-        order.date = new Date()
-        order.total = precioTotal()
+        order.date = new Date() //Add a date to the order
+        order.total = precioTotal() //Add the total price to the order
         console.log(order)
 
-        const db = getFirestore()
-        const queryOrders = collection(db, 'orders') //Target collection
-        addDoc(queryOrders, order) //Adds document with the order information 
-        .then(resp => setOrderId(resp.id)) //Sets state to use later
+        SetOrder(order)
+        .then(resp => setOrderId(resp.id))
 
-        const queryCollectionStock = collection(db, 'items') //Target collection
 
-        const queryUpdateStock = query( //Filter for request
-            queryCollectionStock, where( documentId(), 'in', cartList.map(it => it.id)) //Brings ids than match the ones in the cart
-        )
+        
+        // const db = getFirestore()
+        // const queryOrders = collection(db, 'orders') //Target collection
+        // addDoc(queryOrders, order) //Adds document with the order information 
+        // .then(resp => setOrderId(resp.id)) //Sets state to use later
 
-        const batch = writeBatch(db) //Allows many actions at a time
+        // const queryCollectionStock = collection(db, 'items') //Target collection
 
-        await getDocs(queryUpdateStock)
-        .then(resp => resp.docs.forEach(res => batch.update(res.ref, { //Substracts the amount in the cart to the current stock of each item
-            stock : res.data().stock - cartList.find(item => item.id === res.id).cantidad
-        })))
-        .catch(err => console.log(err))
-        .finally(vaciarCarrito())
+        // const queryUpdateStock = query( //Filter for request
+        //     queryCollectionStock, where( documentId(), 'in', cartList.map(it => it.id)) //Brings ids than match the ones in the cart
+        // )
 
-        batch.commit()
+        // const batch = writeBatch(db) //Allows many actions at a time
+
+        // await getDocs(queryUpdateStock)
+        // .then(resp => resp.docs.forEach(res => batch.update(res.ref, { //Substracts the amount in the cart to the current stock of each item
+        //     stock : res.data().stock - cartList.find(item => item.id === res.id).cantidad
+        // })))
+        // .catch(err => console.log(err))
+        // .finally(vaciarCarrito()) //Resets the cart
+
+        // batch.commit()
+        UpdateStock(cartList, vaciarCarrito)
 
     }
 
     
 
     return (
-        <>
-            {orderId !== '' && <div>{`Su numero de orden es ${orderId}`}</div> } {/* check if orderId was generated and if so, show */}
-            {cartList.length == 0 ? 
-
+        <>  
+            {/* check if orderId was generated and if so, show */}
+            {orderId !== '' && 
+            <div>
+                <Card className="text-center mx-auto" style={{ width: '20rem' , borderRadius:"12px"}}>
+                    <CardHeader style={{ backgroundColor: "#FF9F50", color: "white"}}>¡COMPRA EXITOSA!</CardHeader>
+                    <Card.Text>{`Su numero de orden es ${orderId}`}</Card.Text>
+                </Card>
+                <br/>
+            </div>
+             }
             
+             {/*  */}
+            {cartList.length === 0 ? 
 
             <Card className="text-center mx-auto" style={{ width: '10rem' }}>
             <CardHeader>No tenes nada en tu carrito aun</CardHeader>
@@ -71,39 +92,16 @@ const Cart = () => {
             :
             <div>
                 <h1>CARRITO</h1>
-                <ul>
-                    {cartList.map( item => (
-                        <div key={item.id}>
-                            
-                            <Card className="text-center mx-auto" style={{ width: '40rem' }}>
-                                <Row>
-                                <Col>
-                                    <img src={item.pictureUrl} width="230" height="230" style={{ margin: '8px' }}/>
-                                </Col>
-                                <Col style={{ marginRight: '30px' }}>
-
-                                    <br/><CardHeader >{item.title}</CardHeader>
-
-                                    <br/>{`Cantidad: ${item.cantidad}`}
-
-                                    <div style={{ marginTop: '5px' }}>{`Precio: ${item.price}`}</div>
-                                    <br/>
-                                    <button onClick={() => eliminarItem(item.id)}>Eliminar Producto</button>                                   
-                                </Col>
-                                </Row>                              
-                            </Card>  
-                        </div>
-                    ))}  
-                </ul>
+                <CartList/>
+                <br/>
                 
                 <Card className="text-center mx-auto" style={{ width: '10rem' }}>
                     <CardHeader>TOTAL</CardHeader>
                     <h3>${precioTotal()}</h3>
-                    <button className="btn-outline-light" onClick={saveOrder} style={{ borderRadius:"12px", backgroundColor: "#FF9F50", color: "white", margin:"5px", outlineColor:"white" }}>CHECKOUT</button>
                 </Card>
                 <button className="btn-outline-light" onClick={vaciarCarrito} style={{ borderRadius:"12px", backgroundColor: "#FF9F50", color: "white", margin:"5px", outlineColor:"white" }}>Vaciar Carrito</button>
                 
-                <CheckoutForm saveOrder={saveOrder}/>
+                <CheckoutForm saveOrder={saveOrder} />
                 <br/>
                 <br/>
                 

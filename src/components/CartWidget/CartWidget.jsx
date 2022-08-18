@@ -10,7 +10,7 @@ const CartWidget = () => {
     
     return (
         <>
-            <img src={cartIcon} width="35" height="35" />{cantidadTotal() !== 0 && <span>{cantidadTotal()}</span>}
+            <img src={cartIcon} width="40" height="40" />{cantidadTotal() !== 0 && <span style={{ fontSize: "25px" }}> {cantidadTotal()}</span>}
 
         </>
         
