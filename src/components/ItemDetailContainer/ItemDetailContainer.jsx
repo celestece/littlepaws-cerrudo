@@ -3,31 +3,33 @@ import React from 'react';
 import { useParams } from "react-router-dom"
 import { useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
 import Loading from "../Loading/Loading";
+import { GetProductsId } from "../helpers/Helpers";
+import ItemNotFound from "../ItemNotFound/ItemNotFound";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({})
-    const [loading, setLoading] = useState(true)
+    const [item, setItem] = useState({}) //Item state with an empty object. To be setted by the fetch
+    const [loading, setLoading] = useState(true) //Loading state for conditional rendering
 
-    const {detalleId} = useParams() 
+    const {detailId} = useParams() //UseParams hook to get the parameters of the route
 
     useEffect(()=> {
-        const db = getFirestore()
-        const queryProduct = doc(db, 'items', detalleId)
-        getDoc(queryProduct)
-        .then(resp => setItem({id:resp.id,...resp.data()}))
+        GetProductsId(detailId) // Pass useParams hook value to the function that brings the firestore document
+        .then(resp => setItem({id:resp.id,...resp.data()})) //Sets item with corresponding id
         .catch(err=> console.log(err))
-        .finally(() => setLoading(false))
+        .finally(() => setLoading(false)) //Show Loading component
     }, [])
     
     return (
         <>
             <br/>
+            {/* Nested ternary operators to determine what to show. 
+            Show component ItemNotFound if a property of the item is undefined 
+            Pass item state as a prop to ItemDetail component*/}
             {loading ? <Loading/>
             
-            : <ItemDetail  item={item}/>
-            }
+            :  item.title == undefined ? <ItemNotFound/> : <ItemDetail  item={item}/>
+            }   
             
         </>
     )

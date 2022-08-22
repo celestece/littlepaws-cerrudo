@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+﻿![Logo Little Paws](https://drive.google.com/uc?export=download&id=1UCVbekuZB9mIsfekAYA4Hzl6Xy0Tq_Ob)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Descripción
 
-## Available Scripts
+***Little Paws*** es una aplicación e-commerce de productos para mascotas donde el usuario podra ver los productos, ordenarlos por categoria, y hacer su pedido. Todas las graficas de los productos son de creación e **ilustracion propia** utilizando Illustrator.
 
-In the project directory, you can run:
 
-### `npm start`
+# Instalación
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para instalar y ejecutar la aplicación web, se debe **[clonar este repositorio](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)**. Posteriormente estando ubicado en el directorio creado, se debe ejecutar este comando:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    cd littlepaws-cerrudo
+Luego, vamos a verificar si node.js esta instalado, para lo cual en la terminal de la aplicacion y posicionandose en el path correcto, se ejecuta este comando:
 
-### `npm test`
+    node -v
+Esto resultara en el numero de la version o en un error. De ocurrir lo segundo, se debe **descargar el entorno** desde [la pagina oficial](https://nodejs.org/es/download/) y correr el instalador.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Una vez obtenido node (o si ya se lo tiene), se deben **instalar las dependencias** del proyecto. Para ello, se ejecuta el siguiente comando en la terminal: 
 
-### `npm run build`
+    npm i
+Luego se **corre el proyecto** con este comando:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    npm run dev
+ Esto correra la aplicacion en el puerto 3000, pero de no estar disponible preguntara para correrlo en otro puerto, a lo que debe contestar que si presionando la tecla "y"
+ Terminado todo este proceso, la pagina se abrira automaticamente o puede acceder a ella con el link **[http://localhost:3000/](http://localhost:3000/)** (o el puerto correspondiente) en su navegador.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Demo
+Esta aplicacion fue levantada usando Netlify. Se puede acceder a ella utilizando este link -> https://littlepaws-coderhouse.netlify.app/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Librerías & Dependencias
+Librerias y dependencias (algunas externas) fueron utilizarlas para darle un valor adicional a la aplicación
+ - **[react](https://es.reactjs.org/)** -> Para poder utilizar JSX. Version: ^18.2.0
+ - [**Boostrap Vanilla**](https://react-bootstrap.github.io/getting-started/introduction) -> Para otorgar estilos personalizados de una manera facil y eficiente. Version: ^5.1.3
+ -  [**React Bootstrap**](https://react-bootstrap.github.io/getting-started/introduction) -> Para otorgar estilos personalizados con el uso de componentes, que hace todo mas legible y simple. Version: ^2.4.0
+ - **[react-router-dom](https://v5.reactrouter.com/web/guides/quick-start)** -> Para realizar una navegacion entre componentes dinamicamente estableciendo rutas con parametros. Permite que la aplicación sea una SPA. Version: ^6.3.0
+ - [**Firebase**](https://firebase.google.com/docs/firestore/quickstart) ->  Base de datos para los productos. Version: ^9.9.2
 
-### `npm run eject`
+## Contacto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+***Celeste Cerrudo***
+LinkedIn -> https://www.linkedin.com/in/celeste-c-263306103/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

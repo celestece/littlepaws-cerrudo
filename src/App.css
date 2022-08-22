@@ -9,12 +9,18 @@
 
 .App {
   text-align: center;
+  
 }
 
+body {
+  background-color: #F6F6F6;
+}
 
 .App-logo {
   margin-top: 10px;
-  height: 17vmin;}
+  max-height: 100px;
+  max-width: 500px;
+}
 
 
 .App-header {
@@ -50,8 +56,20 @@ a:hover {
   height: 170px
 }
 
+.active {
+  color: #FDCC9B;
+  text-decoration: underline;
+}
+
 .itemCard:hover{
-  background-color: #61dafb;
+  background-color: #FDCC9B;
+}
+.itemCard {
+  background-color: white;
+}
+
+.navbar {
+  background-color: white;
 }
 
 .pate {

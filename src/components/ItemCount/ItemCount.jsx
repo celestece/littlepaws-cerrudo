@@ -1,13 +1,12 @@
 import { useState } from "react"
 import React from 'react';
 import { Card, ButtonGroup } from "react-bootstrap"
-import { Link } from "react-router-dom"
 
-const ItemCount = ({inicial = 1, stock = 10, onAdd} ) => {
+const ItemCount = ({initial = 1, stock = 10, onAdd} ) => { //Destructuring of props, initializig default values
     
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(1) //State for count value. 1 by default
 
-    const handleAdd = () => {
+    const handleAdd = () => { //Count addition handler
         if (count<stock) {
             setCount(count + 1)
         }
@@ -17,14 +16,14 @@ const ItemCount = ({inicial = 1, stock = 10, onAdd} ) => {
         
     }
 
-    const handleRemove = () => {
-        if (count>inicial){
+    const handleRemove = () => { //Count substraction handler
+        if (count>initial){
             setCount(count - 1)
         }
         
     }
 
-    const handleAddToCart = () => {
+    const handleAddToCart = () => { //Handler for adding item to cart. Pass current count state as parameter
         onAdd(count)
     }
 

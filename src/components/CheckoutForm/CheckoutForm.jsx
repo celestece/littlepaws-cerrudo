@@ -38,13 +38,13 @@ const CheckoutForm = ({saveOrder}) => {
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGroupName">
                 <FloatingLabel controlId="floatingInputName" label="Primer Nombre">
-                    <Form.Control type="text" onChange={handleChange}  name='name' value={buyerData.name} required placeholder="Juan Garcia"/>
+                    <Form.Control type="text" onChange={handleChange}  name='name' value={buyerData.name || ''} required placeholder="Juan Garcia"/>
                 </FloatingLabel>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGroupPhone">
                 <FloatingLabel controlId="floatingInputPhone" label="Numero Telefonico">
-                    <Form.Control type="tel" onChange={handleChange}  name='phone' value={buyerData.phone} required placeholder="+54 3624 292929"/>
+                    <Form.Control type="tel" onChange={handleChange}  name='phone' value={buyerData.phone || ''} required placeholder="+54 3624 292929"/>
                 </FloatingLabel>
                 </Form.Group>
 
@@ -54,7 +54,7 @@ const CheckoutForm = ({saveOrder}) => {
                 <Col md={8}>
             <Form.Group  controlId="formGroupEmail">
                 <FloatingLabel controlId="floatingInputEmail" label="Correo Electronico">
-                    <Form.Control type="email" onChange={handleChange}  name='email' value={buyerData.email} required placeholder="name@example.com"/>
+                    <Form.Control type="email" onChange={handleChange}  name='email' value={buyerData.email || ''} required placeholder="name@example.com"/>
                 </FloatingLabel>
             </Form.Group>
             </Col>
@@ -67,7 +67,7 @@ const CheckoutForm = ({saveOrder}) => {
             <br/>
             <Form.Group  controlId="formGroupEmail">
                 <FloatingLabel controlId="floatingInputEmail" label="Repetir Correo Electronico">
-                    <Form.Control type="email" onChange={handleChange }  name='email2' value={buyerData.email2} required placeholder="name@example.com"/>
+                    <Form.Control type="email" onChange={handleChange }  name='email2' value={buyerData.email2 || ''} required placeholder="name@example.com"/>
                 </FloatingLabel>
             </Form.Group>
         <br/>

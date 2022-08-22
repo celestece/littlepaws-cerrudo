@@ -5,12 +5,12 @@ import { useCartContext } from "../../context/CartContext"
 
 const CartWidget = () => {
 
-    const {cantidadTotal} = useCartContext()
+    const {totalAmount} = useCartContext()
  
     
     return (
         <>
-            <img src={cartIcon} width="40" height="40" />{cantidadTotal() !== 0 && <span style={{ fontSize: "25px" }}> {cantidadTotal()}</span>}
+            <img src={cartIcon} width="40" height="40" />{totalAmount() !== 0 && <span style={{ fontSize: "25px" }}> {totalAmount()}</span>}
 
         </>
         

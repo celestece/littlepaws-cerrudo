@@ -4,7 +4,7 @@ import { useCartContext } from "../../context/CartContext"
 
 const CartItem = ({item}) => {
 
-    const {eliminarItem} = useCartContext()
+    const {removeItem} = useCartContext()
     
     return (
         <>
@@ -18,11 +18,11 @@ const CartItem = ({item}) => {
 
                     <br/><CardHeader>{item.title}</CardHeader>
 
-                    <br/>{`Cantidad: ${item.cantidad}`}
+                    <br/>{`Cantidad: ${item.amount}`}
 
                     <div style={{ marginTop: '5px' }}>{`Precio: ${item.price}`}</div>
                     <br/>
-                    <button onClick={() => eliminarItem(item.id)}>Eliminar Producto</button>                                   
+                    <button onClick={() => removeItem(item.id)}>Eliminar Producto</button>                                   
                 </Col>
                 </Row>                              
             </Card> 

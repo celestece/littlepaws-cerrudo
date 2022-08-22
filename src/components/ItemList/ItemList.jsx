@@ -5,13 +5,13 @@ import React from 'react';
 
 
 
-const ItemList = ({productos}) => {
+const ItemList = ({products}) => {
     
     return (
         <>
         <Container>
             <Row md={4}>
-                {productos?.map(producto => <Item key={producto.id} prods={producto} />)}
+                {products?.map(product => <Item key={product.id} prods={product} />)}
             </Row>
         </Container>
         </>
