@@ -10,7 +10,7 @@ const CartWidget = () => {
     
     return (
         <>
-            <img src={cartIcon} width="40" height="40" />{totalAmount() !== 0 && <span style={{ fontSize: "25px" }}> {totalAmount()}</span>}
+            <img src={cartIcon} alt="cartIcon" width="40" height="40" />{totalAmount() !== 0 && <span style={{ fontSize: "25px" }}> {totalAmount()}</span>}
 
         </>
         

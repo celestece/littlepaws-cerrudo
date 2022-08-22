@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initFirebase } from './firebase/config';
-import { Router } from 'react-router-dom';
 
 initFirebase()
 

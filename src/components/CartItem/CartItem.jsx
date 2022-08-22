@@ -4,7 +4,7 @@ import { useCartContext } from "../../context/CartContext"
 
 const CartItem = ({item}) => {
 
-    const {removeItem} = useCartContext()
+    const {removeItem} = useCartContext() //Importing function of cart context
     
     return (
         <>

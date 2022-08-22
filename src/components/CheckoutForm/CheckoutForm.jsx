@@ -3,7 +3,7 @@ import { FloatingLabel, Form, Row, Col, Card } from "react-bootstrap"
 
 const CheckoutForm = ({saveOrder}) => {
 
-    const [buyerData, setBuyerData] = useState({
+    const [buyerData, setBuyerData] = useState({ //Defining state hook of the buyer data. An object with empty properties as default
         name:'', phone:'', email:'' 
     })
 

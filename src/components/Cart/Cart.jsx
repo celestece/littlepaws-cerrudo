@@ -33,11 +33,11 @@ const Cart = () => {
         order.date = new Date() //Add a date to the order
         order.total = totalPrice() //Add the total price to the order
         
-        setOrder(order)
-        .then(resp => setOrderId(resp.id))
+        setOrder(order) // Set order state with order object
+        .then(resp => setOrderId(resp.id)) //If successful, set order id to show later
         
 
-        updateStock(cartList, emptyCart)
+        updateStock(cartList, emptyCart) //Update stock of items bought
 
     }
 

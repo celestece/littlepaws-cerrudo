@@ -7,17 +7,13 @@ const ItemCount = ({initial = 1, stock = 10, onAdd} ) => { //Destructuring of pr
     const [count, setCount] = useState(1) //State for count value. 1 by default
 
     const handleAdd = () => { //Count addition handler
-        if (count<stock) {
-            setCount(count + 1)
-        }
-        else {
-            alert(`No hay stock suficiente, el stock actual es: ${stock}`)
-        }
+        //Ternary operator for checking the stock. It will add only if count is less than the current stock
+        count < stock ? setCount(count + 1) : alert(`No hay stock suficiente, el stock actual es: ${stock}`)
         
     }
 
     const handleRemove = () => { //Count substraction handler
-        if (count>initial){
+        if (count>initial){ //If count is at 1, it wont substract anymore
             setCount(count - 1)
         }
         
