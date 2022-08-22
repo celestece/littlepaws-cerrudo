@@ -5,7 +5,7 @@ import { useCartContext } from "../../context/CartContext"
 import React, { useState } from 'react';
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import CartList from "../CartList/CartList";
-import { SetOrder, UpdateStock } from "../helpers/Helpers";
+import { setOrder, updateStock } from "../helpers/Helpers";
 
 
 
@@ -22,7 +22,6 @@ const Cart = () => {
         const order = {} //empty order object
         order.buyer =  buyerData //buyer state set by the form
 
-        console.log(order.buyer)
 
         order.items = cartList.map(prod => { //List cartList(array) products and save the properties of interest (product, id, price)
             return {
@@ -33,13 +32,12 @@ const Cart = () => {
         })
         order.date = new Date() //Add a date to the order
         order.total = totalPrice() //Add the total price to the order
-        console.log(order)
-
-        SetOrder(order)
+        
+        setOrder(order)
         .then(resp => setOrderId(resp.id))
         
 
-        UpdateStock(cartList, emptyCart)
+        updateStock(cartList, emptyCart)
 
     }
 

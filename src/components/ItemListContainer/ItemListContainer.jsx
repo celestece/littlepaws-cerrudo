@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import Loading from "../Loading/Loading";
-import { GetProductsFirestore } from "../helpers/Helpers";
+import { getProductsFirestore } from "../helpers/Helpers";
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
@@ -13,7 +13,7 @@ const ItemListContainer = ({greeting}) => {
 
 
     useEffect(() => {
-        GetProductsFirestore(categoryId)
+        getProductsFirestore(categoryId)
         .then(resp => setProducts(resp.docs.map(prod => ({id: prod.id,...prod.data()}))))
         .catch(err=> console.log(err))
         .finally(() => setLoading(false))

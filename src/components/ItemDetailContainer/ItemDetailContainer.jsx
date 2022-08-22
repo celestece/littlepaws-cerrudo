@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from "../Loading/Loading";
-import { GetProductsId } from "../helpers/Helpers";
+import { getProductsId } from "../helpers/Helpers";
 import ItemNotFound from "../ItemNotFound/ItemNotFound";
 
 const ItemDetailContainer = () => {
@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
     const {detailId} = useParams() //UseParams hook to get the parameters of the route
 
     useEffect(()=> {
-        GetProductsId(detailId) // Pass useParams hook value to the function that brings the firestore document
+        getProductsId(detailId) // Pass useParams hook value to the function that brings the firestore document
         .then(resp => setItem({id:resp.id,...resp.data()})) //Sets item with corresponding id
         .catch(err=> console.log(err))
         .finally(() => setLoading(false)) //Show Loading component
